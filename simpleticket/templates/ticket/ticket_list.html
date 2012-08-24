@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}View Tickets - {% endblock %}
+{% block content %}
+<table cellspacing="0" class="list">
+	<tr>
+		<th>Ticket</th>
+		<th>Description</th>
+		<th>Status</th>
+		<th>Assigned to</th>
+	</tr>
+	{% for ticket in object_list %}
+	<tr>
+		<td><a href="{% url ticket-detail ticket.id %}">{{ ticket.id }}</a></td>
+		<td><a href="{% url ticket-detail ticket.id %}">{{ ticket.name }}</a></td>
+		<td>{{ ticket.status }}</td>
+		<td>{{ ticket.assigned_to }}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endblock %}
